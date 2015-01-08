@@ -370,6 +370,7 @@ void epggrab_init ( void )
   /* Initialise modules */
 #if ENABLE_MPEGTS
   eit_init();
+  psip_init();
   opentv_init();
 #endif
   pyepg_init();
