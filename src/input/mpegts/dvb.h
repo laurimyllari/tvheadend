@@ -38,6 +38,7 @@ struct mpegts_mux;
 #define DVB_SDT_PID                   0x11
 #define DVB_BAT_PID                   0x11
 #define DVB_VCT_PID                   0x1FFB
+#define DVB_ATSC_STT_PID              0x1FFB
 #define DVB_ATSC_MGT_PID              0x1FFB
 
 /* Tables */
@@ -76,6 +77,9 @@ struct mpegts_mux;
 
 #define DVB_ATSC_ETT_BASE             0xCC
 #define DVB_ATSC_ETT_MASK             0xFF
+
+#define DVB_ATSC_STT_BASE             0xCD
+#define DVB_ATSC_STT_MASK             0xFF
 
 #define DVB_TELETEXT_BASE             0x2000
 
@@ -259,6 +263,8 @@ int dvb_sdt_callback
 int dvb_tdt_callback
   (struct mpegts_table *mt, const uint8_t *ptr, int len, int tableid);
 int atsc_vct_callback
+  (struct mpegts_table *mt, const uint8_t *ptr, int len, int tableid);
+int atsc_stt_callback
   (struct mpegts_table *mt, const uint8_t *ptr, int len, int tableid);
 
 void psi_tables_default ( struct mpegts_mux *mm );
