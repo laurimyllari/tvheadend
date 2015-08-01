@@ -137,7 +137,7 @@ _psip_eit_callback
     char buf[512];
     epg_broadcast_t *ebc;
     epg_episode_t *ee;
-    channel_t *ch = (channel_t *)LIST_FIRST(&svc->s_channels)->ilm_in2;
+    channel_t *ch = LIST_FIRST(&svc->s_channels)->csm_chn;
     lang_str_t       *title;
 
     eventid = (ptr[0] & 0x3f) << 8 | ptr[1];
@@ -242,7 +242,7 @@ _psip_ett_callback
   if (!isevent) {
     tvhdebug("psip", "0x%04x: channel ETT tableid 0x%04X [%s], ver %d", mt->mt_pid, tsid, svc->s_dvb_svcname, ver);
   } else {
-    channel_t *ch = (channel_t *)LIST_FIRST(&svc->s_channels)->ilm_in2;
+    channel_t *ch = LIST_FIRST(&svc->s_channels)->csm_chn;
     epg_broadcast_t *ebc;
     ebc = epg_broadcast_find_by_eid(ch, eventid);
     if (ebc) {
